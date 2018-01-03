@@ -4,7 +4,7 @@
 ## 1.使用方法
 它使用起来非常方便 ,他的文件只有一个,你只需将文件突入项目即可
 
-![这是列子](https://github.com/AnRanScheme/MagiNotice/Untitled.gif)
+![这是列子](https://github.com/AnRanScheme/MagiNotice/raw/master/Untitled.gif)
 
 ```
 switch titleArray[indexPath.row] {
