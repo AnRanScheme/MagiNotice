@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,6 +14,10 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MagiNotice" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BLF-Ee-91S"/>
+                        <viewControllerLayoutGuide type="bottom" id="lND-hq-qAC"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,12 +33,11 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vNb-Vz-X4w" secondAttribute="bottom" id="IEE-F9-Ykc"/>
-                            <constraint firstItem="vNb-Vz-X4w" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="SYI-gd-hE7"/>
-                            <constraint firstItem="vNb-Vz-X4w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TmQ-Cq-pES"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vNb-Vz-X4w" secondAttribute="trailing" id="vPY-sD-OBa"/>
+                            <constraint firstItem="lND-hq-qAC" firstAttribute="top" secondItem="vNb-Vz-X4w" secondAttribute="bottom" id="IEE-F9-Ykc"/>
+                            <constraint firstItem="vNb-Vz-X4w" firstAttribute="top" secondItem="BLF-Ee-91S" secondAttribute="bottom" id="SYI-gd-hE7"/>
+                            <constraint firstItem="vNb-Vz-X4w" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="TmQ-Cq-pES"/>
+                            <constraint firstAttribute="trailing" secondItem="vNb-Vz-X4w" secondAttribute="trailing" id="vPY-sD-OBa"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="vNb-Vz-X4w" id="Jqv-dJ-j3a"/>

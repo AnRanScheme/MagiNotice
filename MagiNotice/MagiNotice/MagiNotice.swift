@@ -257,11 +257,11 @@ class MagiNotice: NSObject {
         var image = UIImage()
         switch type {
         case .success:
-            image = SwiftNoticeSDK.imageOfCheckmark
+            image = MagiNoticeSDK.imageOfCheckmark
         case .error:
-            image = SwiftNoticeSDK.imageOfCross
+            image = MagiNoticeSDK.imageOfCross
         case .info:
-            image = SwiftNoticeSDK.imageOfInfo
+            image = MagiNoticeSDK.imageOfInfo
         }
         let checkmarkView = UIImageView(image: image)
         checkmarkView.frame = CGRect(x: 27, y: 15, width: 36, height: 36)
@@ -313,7 +313,7 @@ class MagiNotice: NSObject {
     }
 }
 
-class SwiftNoticeSDK {
+class MagiNoticeSDK {
     struct Cache {
         static var imageOfCheckmark: UIImage?
         static var imageOfCross: UIImage?
@@ -368,7 +368,7 @@ class SwiftNoticeSDK {
         }
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 36, height: 36), false, 0)
         
-        SwiftNoticeSDK.draw(NoticeType.success)
+        MagiNoticeSDK.draw(NoticeType.success)
         
         Cache.imageOfCheckmark = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -380,7 +380,7 @@ class SwiftNoticeSDK {
         }
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 36, height: 36), false, 0)
         
-        SwiftNoticeSDK.draw(NoticeType.error)
+        MagiNoticeSDK.draw(NoticeType.error)
         
         Cache.imageOfCross = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -392,7 +392,7 @@ class SwiftNoticeSDK {
         }
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 36, height: 36), false, 0)
         
-        SwiftNoticeSDK.draw(NoticeType.info)
+        MagiNoticeSDK.draw(NoticeType.info)
         
         Cache.imageOfInfo = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
