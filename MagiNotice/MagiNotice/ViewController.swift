@@ -19,7 +19,7 @@ class ViewController: UIViewController {
                      "notice info",
                      "notice text",
                      "notice loading and completion",
-                     "notice static bar",
+                     "notice status bar",
                      "notice top",
                      "notice clear"]
         return array
@@ -94,7 +94,7 @@ extension ViewController: UITableViewDelegate {
              self.noticeText("只有文字没有图片的情况阿斯顿法国和加快了QWERTYUIop主线程VB你们,是董浩手机的")
         case "notice loading and completion":
             request()
-        case "notice static bar":
+        case "notice status bar":
             self.noticeStatusBar("OK!1111111-------------22222222---------3333333333======")
         case "notice top":
             self.noticeText("还没有实现以后会慢慢实现")
