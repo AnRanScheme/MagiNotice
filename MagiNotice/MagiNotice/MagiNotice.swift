@@ -76,8 +76,6 @@ class MagiNotice: NSObject {
         }
     }
     
-    // fix https://github.com/johnlui/SwiftNotice/issues/2
-    // thanks broccolii(https://github.com/broccolii) and his PR https://github.com/johnlui/SwiftNotice/pull/5
     static func clear() {
         self.cancelPreviousPerformRequests(withTarget: self)
         if let _ = timer {
@@ -158,7 +156,13 @@ class MagiNotice: NSObject {
                 iv.contentMode = UIViewContentMode.scaleAspectFit
                 mainView.addSubview(iv)
                 timer = DispatchSource.makeTimerSource(flags: DispatchSource.TimerFlags(rawValue: UInt(0)), queue: DispatchQueue.main) as! DispatchSource
-                timer.schedule(deadline: DispatchTime.now(), repeating: DispatchTimeInterval.milliseconds(timeInterval))
+                timer.scheduleRepeating(deadline: DispatchTime.now(),
+                                        interval: DispatchTimeInterval.milliseconds(timeInterval))
+                 /*
+                 Swift4 的最新方法
+                 timer.schedule(deadline: DispatchTime.now(),
+                 repeating: DispatchTimeInterval.milliseconds(timeInterval))
+                 */
                 timer.setEventHandler(handler: { () -> Void in
                     let name = imageNames[timerTimes % imageNames.count]
                     iv.image = name
