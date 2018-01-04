@@ -101,17 +101,17 @@ extension ViewController: UITableViewDelegate {
             for i in 1...7 {
                 imagesArray.append(UIImage(named: "loading\(i)")!)
             }
-            self.pleaseWaitWithImages(imagesArray, timeInterval: 20)
+            self.pleaseWaitWithImages(imagesArray, timeInterval: 1)
         case "notice success":
             self.noticeSuccess("Success!")
         case "notice error":
             self.noticeError("error!")
         case "notice info":
-            self.noticeInfo("info还没有实现以后会慢慢实现还没有实现以后会慢慢实现还没有实现以后会慢慢实现")
+            self.noticeInfo("info")
         case "notice progress":
             progress()
         case "notice text":
-             self.noticeText("只有文字没有图片的情况阿斯顿法国和加快了QWERTYUIop主线程VB你们,是董浩手机的")
+             self.noticeText("只有文字没有图片的情况阿斯顿法还没有实现以后会慢慢实现还没有实现以后会慢慢实现还没有实现以后会慢慢实现国和加快了QWERTYUIop主线程VB你们,是董浩手机的")
         case "notice loading and completion":
             request()
         case "notice status bar":
