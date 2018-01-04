@@ -21,11 +21,12 @@ class ViewController: UIViewController {
                      "notice text",
                      "notice loading and completion",
                      "notice status bar",
-                     "notice top",
+                     "notice tip",
                      "notice clear"]
         return array
     }()
-
+    @IBOutlet weak var textField: UITextField!
+    
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
@@ -43,6 +44,7 @@ class ViewController: UIViewController {
         tableView.separatorInset = UIEdgeInsets.zero
         tableView.register(UITableViewCell.self,
                            forCellReuseIdentifier: ViewController.identifier)
+        tableView.tableFooterView = UIView()
     }
     
     fileprivate func request() {
@@ -93,6 +95,10 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        textField.resignFirstResponder()
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch titleArray[indexPath.row] {
@@ -116,8 +122,8 @@ extension ViewController: UITableViewDelegate {
             request()
         case "notice status bar":
             self.noticeStatusBar("OK!1111111-------------22222222---------3333333333======")
-        case "notice top":
-            self.noticeText("还没有实现以后会慢慢实现")
+        case "notice tip":
+            self.noticeInfoTip("只有文字没有图片的情况阿斯顿法还没有实现以后会慢慢实现还没有实现以后会慢慢实现还没有实现以")
         case "notice clear":
             self.clearAllNotice()
         default:

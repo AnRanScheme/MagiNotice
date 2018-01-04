@@ -28,6 +28,21 @@ extension UIResponder {
     func noticeStatusBar(_ text: String, autoClear: Bool = true, autoClearTime: Int = 1) -> UIWindow{
         return MagiNotice.noticeOnStatusBar(text, autoClear: autoClear, autoClearTime: autoClearTime)
     }
+    
+    @discardableResult
+    func noticeSuccessTip(_ text: String, autoClear: Bool = true, autoClearTime: Int = 2) -> UIWindow{
+        return MagiNotice.showNoticeWithTip(NoticeType.success, text: text, autoClear: autoClear, autoClearTime: autoClearTime)
+    }
+    
+    @discardableResult
+    func noticeErrorTip(_ text: String, autoClear: Bool = true, autoClearTime: Int = 2) -> UIWindow{
+        return MagiNotice.showNoticeWithTip(NoticeType.error, text: text, autoClear: autoClear, autoClearTime: autoClearTime)
+    }
+    
+    @discardableResult
+    func noticeInfoTip(_ text: String, autoClear: Bool = true, autoClearTime: Int = 2) -> UIWindow{
+        return MagiNotice.showNoticeWithTip(NoticeType.info, text: text, autoClear: autoClear, autoClearTime: autoClearTime)
+    }
 
     @discardableResult
     func noticeSuccess(_ text: String, autoClear: Bool = false, autoClearTime: Int = 3) -> UIWindow{
@@ -382,13 +397,15 @@ class MagiNotice: NSObject {
     
     @discardableResult
     static func showNoticeWithTip(_ type: NoticeType,text: String, autoClear: Bool, autoClearTime: Int) -> UIWindow {
-        let frame = CGRect(x: 0, y: 0, width: 90, height: 90)
+        
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        let height: CGFloat = statusBarHeight > 20 ? 74 : 50
+        let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: height)
         let window = UIWindow()
         window.backgroundColor = UIColor.clear
         let mainView = UIView()
-        mainView.layer.cornerRadius = 10
-        mainView.backgroundColor = UIColor(red:0, green:0, blue:0, alpha: 0.7)
-        
+        mainView.backgroundColor = UIColor(red: 0x6a/0x100, green: 0xb4/0x100, blue: 0x9f/0x100, alpha: 1)
+        mainView.tag = ma_topBar
         var image = UIImage()
         switch type {
         case .success:
@@ -399,42 +416,41 @@ class MagiNotice: NSObject {
             image = MagiNoticeSDK.imageOfInfo
         }
         let checkmarkView = UIImageView(image: image)
-        checkmarkView.frame = CGRect(x: 27, y: 15, width: 36, height: 36)
+        let checkmarkView_y = statusBarHeight > 20 ?  statusBarHeight - 20 + 12 : 12
+        let checkmarkViewFrame = CGRect(x: 12, y: checkmarkView_y, width: 26, height: 26)
+        checkmarkView.frame = checkmarkViewFrame
         mainView.addSubview(checkmarkView)
-        
-        let label = UILabel(frame: CGRect(x: 0, y: 60, width: 90, height: 16))
-        label.font = UIFont.systemFont(ofSize: 13)
+
+        let label_y = statusBarHeight > 20 ? statusBarHeight - 20 + 17 : 17
+        let labelFrame = CGRect(x: 48, y: label_y, width: UIScreen.main.bounds.width - 60, height: 16)
+        let label = UILabel(frame: labelFrame)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.white
         label.text = text
-        label.textAlignment = NSTextAlignment.center
+        label.textAlignment = NSTextAlignment.left
         mainView.addSubview(label)
         
         window.frame = frame
         mainView.frame = frame
-        window.center = rv!.center
-        
-        if let version = Double(UIDevice.current.systemVersion),
-            version < 9.0 {
-            // change center
-            window.center = getRealCenter()
-            // change direction
-            window.transform = CGAffineTransform(rotationAngle: CGFloat(degree * Double.pi / 180))
-        }
         
         window.windowLevel = UIWindowLevelAlert
-        window.center = rv!.center
         window.isHidden = false
         window.addSubview(mainView)
         windows.append(window)
         
-        mainView.alpha = 0.0
-        UIView.animate(withDuration: 0.2, animations: {
-            mainView.alpha = 1
+        var origPoint = mainView.frame.origin
+        origPoint.y = -(mainView.frame.size.height)
+        let destPoint = mainView.frame.origin
+        
+        mainView.frame = CGRect(origin: origPoint, size: mainView.frame.size)
+        UIView.animate(withDuration: 0.3, animations: {
+            mainView.frame = CGRect(origin: destPoint, size: mainView.frame.size)
+        }, completion: { b in
+            if autoClear {
+                self.perform(.hideNotice, with: window, afterDelay: TimeInterval(autoClearTime))
+            }
         })
         
-        if autoClear {
-            self.perform(.hideNotice, with: window, afterDelay: TimeInterval(autoClearTime))
-        }
         return window
     }
     

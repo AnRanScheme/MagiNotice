@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import MagiNotice
 
 class MagiNoticeTests: XCTestCase {
     
