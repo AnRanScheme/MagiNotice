@@ -13,11 +13,9 @@
        
   一系列的简单接口它们是 ```UIResponder``` 的扩展
   
-  
-  
-  
-  ```
-  func pleaseWaitWithImages(_ imageNames: Array<UIImage>, timeInterval: Int) -> UIWindow{
+```
+    @discardableResult
+    func pleaseWaitWithImages(_ imageNames: Array<UIImage>, timeInterval: Int) -> UIWindow{
         return MagiNotice.wait(imageNames, timeInterval: timeInterval)
     }
     
@@ -40,11 +38,10 @@
     func noticeInfoTip(_ text: String, autoClear: Bool = true, autoClearTime: Int = 2) -> UIWindow{
         return MagiNotice.showNoticeWithTip(NoticeType.info, text: text, autoClear: autoClear, autoClearTime: autoClearTime)
     }
-   ```
+```
    
    
-   
-  ### 你会看到
+### 你会看到
 这里只是一部分
 
 当然还有更多的接口可以调用 添加提示的方法并不是单例所以你要小心提示会重复的展示,当然只要你处理好是不会有这个问题的;我觉得这样会更灵活:
