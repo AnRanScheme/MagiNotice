@@ -18,7 +18,7 @@ enum NoticeType{
 }
 
 extension UIResponder {
-    /// wait with your own animated images
+    
     @discardableResult
     func pleaseWaitWithImages(_ imageNames: Array<UIImage>, timeInterval: Int) -> UIWindow{
         return MagiNotice.wait(imageNames, timeInterval: timeInterval)
@@ -354,8 +354,9 @@ class MagiNotice: NSObject {
             label.text = text
             label.textAlignment = NSTextAlignment.center
             mainView.addSubview(label)
-            
-            progressWindow?.frame = frame
+            if let progressWindowFrame = UIApplication.shared.keyWindow?.frame {
+                progressWindow?.frame = progressWindowFrame
+            }
             mainView.frame = frame
             progressWindow?.center = rv!.center
             
@@ -626,7 +627,6 @@ fileprivate extension Selector {
 
 @objc extension MagiNotice {
     
-    // fix https://github.com/johnlui/SwiftNotice/issues/2
     static func hideNotice(_ sender: AnyObject) {
         if let window = sender as? UIWindow {
             
