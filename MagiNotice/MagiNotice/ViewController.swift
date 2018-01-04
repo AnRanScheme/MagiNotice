@@ -124,6 +124,7 @@ extension ViewController: UITableViewDelegate {
             self.noticeStatusBar("OK!1111111-------------22222222---------3333333333======")
         case "notice tip":
             self.noticeInfoTip("只有文字没有图片的情况阿斯顿法还没有实现以后会慢慢实现还没有实现以后会慢慢实现还没有实现以")
+            self.noticeInfoTip("展示的文字", autoClear: true, autoClearTime: 5)
         case "notice clear":
             self.clearAllNotice()
         default:

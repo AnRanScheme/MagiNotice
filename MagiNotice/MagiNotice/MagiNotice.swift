@@ -354,9 +354,7 @@ class MagiNotice: NSObject {
             label.text = text
             label.textAlignment = NSTextAlignment.center
             mainView.addSubview(label)
-            if let progressWindowFrame = UIApplication.shared.keyWindow?.frame {
-                progressWindow?.frame = progressWindowFrame
-            }
+            progressWindow?.frame = frame
             mainView.frame = frame
             progressWindow?.center = rv!.center
             
