@@ -10,7 +10,6 @@
 		FA329F9A1FFCBCB800627CFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA329F991FFCBCB800627CFE /* AppDelegate.swift */; };
 		FA329F9C1FFCBCB800627CFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA329F9B1FFCBCB800627CFE /* ViewController.swift */; };
 		FA329F9F1FFCBCB800627CFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA329F9D1FFCBCB800627CFE /* Main.storyboard */; };
-		FA329FA21FFCBCB800627CFE /* MagiNotice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA329FA01FFCBCB800627CFE /* MagiNotice.xcdatamodeld */; };
 		FA329FA41FFCBCB800627CFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA329FA31FFCBCB800627CFE /* Assets.xcassets */; };
 		FA329FA71FFCBCB800627CFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA329FA51FFCBCB800627CFE /* LaunchScreen.storyboard */; };
 		FA329FB21FFCBCB900627CFE /* MagiNoticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA329FB11FFCBCB900627CFE /* MagiNoticeTests.swift */; };
@@ -40,7 +39,6 @@
 		FA329F991FFCBCB800627CFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA329F9B1FFCBCB800627CFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA329F9E1FFCBCB800627CFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FA329FA11FFCBCB800627CFE /* MagiNotice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MagiNotice.xcdatamodel; sourceTree = "<group>"; };
 		FA329FA31FFCBCB800627CFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA329FA61FFCBCB800627CFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA329FA81FFCBCB800627CFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 				FA329FA31FFCBCB800627CFE /* Assets.xcassets */,
 				FA329FA51FFCBCB800627CFE /* LaunchScreen.storyboard */,
 				FA329FA81FFCBCB800627CFE /* Info.plist */,
-				FA329FA01FFCBCB800627CFE /* MagiNotice.xcdatamodeld */,
 				FA329FCC1FFCC48000627CFE /* MagiNotice.swift */,
 			);
 			path = MagiNotice;
@@ -267,7 +264,6 @@
 			files = (
 				FA329F9C1FFCBCB800627CFE /* ViewController.swift in Sources */,
 				FA329F9A1FFCBCB800627CFE /* AppDelegate.swift in Sources */,
-				FA329FA21FFCBCB800627CFE /* MagiNotice.xcdatamodeld in Sources */,
 				FA329FCD1FFCC48000627CFE /* MagiNotice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,19 +564,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		FA329FA01FFCBCB800627CFE /* MagiNotice.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				FA329FA11FFCBCB800627CFE /* MagiNotice.xcdatamodel */,
-			);
-			currentVersion = FA329FA11FFCBCB800627CFE /* MagiNotice.xcdatamodel */;
-			path = MagiNotice.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = FA329F8E1FFCBCB800627CFE /* Project object */;
 }

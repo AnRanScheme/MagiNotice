@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,8 +21,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="点击弹出键盘查看是否会对提示有影响" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="59G-7K-BRg">
+                                <rect key="frame" x="12" y="32" width="351" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vNb-Vz-X4w">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="74" width="375" height="593"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="4nA-Z6-ESm"/>
@@ -33,9 +38,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="59G-7K-BRg" secondAttribute="trailing" constant="12" id="H97-GJ-KtP"/>
                             <constraint firstItem="lND-hq-qAC" firstAttribute="top" secondItem="vNb-Vz-X4w" secondAttribute="bottom" id="IEE-F9-Ykc"/>
-                            <constraint firstItem="vNb-Vz-X4w" firstAttribute="top" secondItem="BLF-Ee-91S" secondAttribute="bottom" id="SYI-gd-hE7"/>
+                            <constraint firstItem="vNb-Vz-X4w" firstAttribute="top" secondItem="59G-7K-BRg" secondAttribute="bottom" constant="12" id="PP8-m4-b8a"/>
                             <constraint firstItem="vNb-Vz-X4w" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="TmQ-Cq-pES"/>
+                            <constraint firstItem="59G-7K-BRg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="12" id="arv-Rt-9le"/>
+                            <constraint firstItem="59G-7K-BRg" firstAttribute="top" secondItem="BLF-Ee-91S" secondAttribute="bottom" constant="12" id="v50-Ng-yog"/>
                             <constraint firstAttribute="trailing" secondItem="vNb-Vz-X4w" secondAttribute="trailing" id="vPY-sD-OBa"/>
                         </constraints>
                     </view>
@@ -45,6 +53,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="140" y="132.68365817091455"/>
         </scene>
     </scenes>
 </document>

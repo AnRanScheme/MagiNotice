@@ -17,6 +17,7 @@ class ViewController: UIViewController {
                      "notice success",
                      "notice error",
                      "notice info",
+                     "notice progress",
                      "notice text",
                      "notice loading and completion",
                      "notice status bar",
@@ -51,6 +52,23 @@ class ViewController: UIViewController {
                 hud.hide()
                 self.noticeSuccess("Success!", autoClear: true)
             })
+        }
+    }
+    
+    func progress() {
+        var progress: Double = 0
+
+        if #available(iOS 10.0, *) {
+            let timer = Timer(timeInterval: 0.5, repeats: true, block: {[unowned self] timer in
+                progress += 0.05
+                self.noticeProgress("正在上传", progress: progress, autoClear: true, autoClearTime: 0)
+                if progress >= 1 {
+                    timer.invalidate()
+                    self.noticeSuccess("上传成功")
+                }
+                
+            })
+            RunLoop.current.add(timer, forMode: .commonModes)
         }
     }
 
@@ -89,7 +107,9 @@ extension ViewController: UITableViewDelegate {
         case "notice error":
             self.noticeError("error!")
         case "notice info":
-            self.noticeInfo("info")
+            self.noticeInfo("info还没有实现以后会慢慢实现还没有实现以后会慢慢实现还没有实现以后会慢慢实现")
+        case "notice progress":
+            progress()
         case "notice text":
              self.noticeText("只有文字没有图片的情况阿斯顿法国和加快了QWERTYUIop主线程VB你们,是董浩手机的")
         case "notice loading and completion":
